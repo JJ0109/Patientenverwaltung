@@ -1,0 +1,64 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" controllerName="odata.controller.Object">
+
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
+
+		<semantic:titleHeading>
+			<Title text="{Anrede} {Vorname} {Nachname}" level="H2"/>
+		</semantic:titleHeading>
+
+		<semantic:headerContent>
+            <FlexBox alignItems="Start" justifyContent="SpaceBetween" items="{/PatientSet}">
+				<Panel backgroundDesign="Transparent">
+					<ObjectAttribute title="Patientennummer" text="{Patnr}"/>
+					<ObjectAttribute title="Versicherungsnummer" text="{Vernr}"/>
+                    <ObjectAttribute title="Usernummer" text="{Usernr}"/>
+				</Panel>
+			</FlexBox>
+		</semantic:headerContent>
+
+
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+
+	<semantic:content>
+    <Panel class="sapUiContentPadding" headerText="Kontaktdaten" content="{/PatientSet}">
+         <content>
+             <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" maxContainerCols="2" editable="false" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" layout="ResponsiveGridLayout" id="form4">
+                 <sap.ui.layout.form:content>
+                     
+                     <Label text="Straße" id="label10"/>
+                     <Text text="{Strasse}"/>
+                     <Label text="Hausnummer" id="label11"/>
+                     <Text text="{Hausnr}"/>
+                     <Label text="Zusatz" id="label12"/>
+                     <Text text="{Zusatz}"/>    
+                     <Label text="Postfach" id="label13"/>
+                     <Text text="{Postfach}"/>                                          
+                     <Label text="Postleitzahl" id="label14"/>
+                     <Text text="{Plz}"/>
+                     <Label text="Ort" id="label15"/>
+                     <Text text="{Ort}"/>    
+                     <Label text="Land" id="label16"/>
+                     <Text text="{Land}"/>                               
+                     <Label text="Telefonnummer" id="label17"/>
+                     <Text text="{Telefonnr}"/>
+                     <Label text="Handynummer" id="label18"/>
+                     <Text text="{Mobilnr}"/>                     
+                     <Label text="E-Mail" id="label19"/>
+                     <Text text="{Email}"/>
+                     <Label text="Fax" id="label20"/>
+                     <Text text="{Fax}"/>  
+                    
+                </sap.ui.layout.form:content>
+             </sap.ui.layout.form:SimpleForm>
+         </content>
+         </Panel>
+	</semantic:content>
+
+
+	</semantic:SemanticPage>
+
+</mvc:View>
